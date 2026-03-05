@@ -44,6 +44,7 @@ export default function TableMap() {
       window.open(selected.url, "_blank");
     }
     setSelected(null);
+    setCustomer("");
     alert(`Booked ${selected.label} for ${customer || "a guest"}`);
     // hide tables after finishing booking
     setTablesVisible(false);
@@ -53,6 +54,7 @@ export default function TableMap() {
   function cancelBooking() {
     setSelected(null);
     setBooking(false);
+    setCustomer("");
     // hide tables when user closes the booking dialog
     setTablesVisible(false);
   }
@@ -376,14 +378,18 @@ export default function TableMap() {
   }
 
   function closeSection() {
+    // clear any active selection/booking and close the active section
     setActiveSection(null);
+    setSelected(null);
+    setBooking(false);
+    setCustomer("");
     // reset zoom and hide tables after the animation finishes
     resetZoom(320, () => setTablesVisible(false));
   }
 
   return (
     <div className="table-map-root">
-      <h2>Sesion Club Interactive Floor Map</h2>
+      <h2>Silence Club - Interactive Floor Map Demo</h2>
       <div className="table-map-wrapper">
         <div className="table-map">
           <svg
@@ -576,6 +582,8 @@ export default function TableMap() {
                 // close any open dialog/section immediately
                 setSelected(null);
                 setActiveSection(null);
+                setBooking(false);
+                setCustomer("");
                 // animate zoom out and hide tables when done
                 resetZoom(320, () => setTablesVisible(false));
               }}
