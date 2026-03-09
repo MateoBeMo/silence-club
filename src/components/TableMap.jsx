@@ -389,7 +389,7 @@ export default function TableMap() {
 
   return (
     <div className="table-map-root">
-      <h2>Silence Club - Interactive Floor Map Demo</h2>
+      <h2>Amok - Interactive Floor Map Demo</h2>
       <div className="table-map-wrapper">
         <div className="table-map">
           <svg
